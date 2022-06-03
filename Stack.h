@@ -7,7 +7,7 @@ typedef struct Stack
 	int* items;
 } Stack;
 
-Stack* new_stack(int size);
+Stack* new_stack();
 
 void push(Stack* ptr, int x);
 int pop(Stack* ptr);

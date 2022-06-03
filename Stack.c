@@ -1,13 +1,15 @@
+#define STACK_SIZE 256
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "Stack.h"
 
-Stack* new_stack(int size)
+Stack* new_stack()
 {
 	Stack* ptr = (Stack*)malloc(sizeof(Stack));
-	ptr->maxsize = size;
+	ptr->maxsize = STACK_SIZE;
 	ptr->top = -1;
-	ptr->items = (int*)calloc(size, sizeof(int));
+	ptr->items = (int*)calloc(1024, sizeof(int));
 
 	return ptr;
 }
@@ -36,7 +38,7 @@ int pop(Stack* ptr)
 
 }
 
-int peek(Stack* ptr)
+int peek(Stack* ptr) 
 {
 	if (!is_empty(ptr))
 		return ptr->items[ptr->top];
